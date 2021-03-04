@@ -1,6 +1,0 @@
-grpcio==1.33.2
-grpcio-tools==1.33.2
-opencensus 
-google-cloud-trace
-opencensus-ext-grpc
-opencensus-ext-stackdriver
