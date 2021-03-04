@@ -1,0 +1,25 @@
+This is the Read Me for client implementation of gRPC. Before implementing this, first follow the server implementation of gRPC.
+
+1.First step is to copy the files hello_world_pb2.py and helloworld_pb2_grpc.py from server and replace them in client
+
+2. (Optional, Already generated) Now get an API key from the Console's API Manager for use in the client later.
+	-> From Google Cloud Dashboard -> APIs & Services -> Credentials -> Create Credentials -> Api Key
+
+3.Now, to locally run the gRPC Client and see the connection with server is working fine or not.
+-> python greeter_client.py --host=<IP of GKE LoadBalancer>:80 --api_key=<API Key from Console>
+You can directly use 
+-> python greeter_client.py --host=104.199.152.176:80 --api_key=AIzaSyCWGpNzPKcPi6KIW0jOPYUeE0PUDuWJpT0
+
+4. To run the client pod, 
+	a. First, build the docker container-
+	-> gcloud builds submit --tag asia.gcr.io/kubernetes-practice-290405/hello-client-grpc:latest .
+	
+	b. To create the deployment, run-
+	-> kubectl create -f ./deployment.yaml
+	
+	c. To check the logs and the code is running fine, run-
+	-> kubectl logs -l app=hello-client
+
+
+
+
